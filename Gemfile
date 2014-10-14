@@ -9,4 +9,10 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'pry-rails'
   gem 'spring'
+  gem 'spring-commands-cucumber'
+end
+
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'site_prism'
 end
