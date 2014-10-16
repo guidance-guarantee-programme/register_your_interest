@@ -4,6 +4,6 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    render nothing: true
+    render :confirmation
   end
 end

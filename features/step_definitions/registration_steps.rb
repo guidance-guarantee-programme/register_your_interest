@@ -14,7 +14,10 @@ When(/^a user provides their details$/) do
 end
 
 Then(/^they are shown a thank you message$/) do
-  pending
+  page = Pages::UserProfile.new
+
+  expect(page).to be_displayed
+  expect(page).to have_heading(text: /^Thank you$/)
 end
 
 Then(/^they are captured and saved$/) do
