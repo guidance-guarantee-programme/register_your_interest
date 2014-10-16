@@ -1,0 +1,108 @@
+<h1><%= title 'Register your interest' %></h1>
+
+<%= form_for @user_profile, url: user_profile_path do |f| %>
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name, class: 't-name' %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age, class: 't-age' %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 't-email' %>
+
+  <fieldset>
+    <legend>When do you plan to retire?</legend>
+
+    <%= f.label :retirement_preference_6_months do %>
+      <%= f.radio_button :retirement_preference, '6_months',
+                         class: 't-retirement_preference_6_months' %>
+      In the next 6 months
+    <% end %>
+
+    <%= f.label :retirement_preference_6_to_12_months do %>
+      <%= f.radio_button :retirement_preference, '6_to_12_months',
+                         class: 't-retirement_preference_6_to_12_months' %>
+      In the next 6 to 12 months
+    <% end %>
+
+    <%= f.label :retirement_preference_1_to_5_years do %>
+      <%= f.radio_button :retirement_preference, '1_to_5_years',
+                         class: 't-retirement_preference_1_to_5_years' %>
+      In the next 1 to 5 years
+    <% end %>
+
+    <%= f.label :retirement_preference_more_than_5_years do %>
+      <%= f.radio_button :retirement_preference, 'more_than_5_years',
+                         class: 't-retirement_preference_more_than_5_years' %>
+      More than 5 years
+    <% end %>
+
+    <%= f.label :retirement_preference_retired do %>
+      <%= f.radio_button :retirement_preference, 'retired',
+                         class: 't-retirement_preference_retired' %>
+      I'm already retired
+    <% end %>
+
+    <%= f.label :retirement_preference_unknown do %>
+      <%= f.radio_button :retirement_preference, 'unknown',
+                         class: 't-retirement_preference_unknown' %>
+      I don’t know
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>What type of pension do you have?</legend>
+
+    <%= f.label :pension_type_defined_contribution do %>
+      <%= f.radio_button :pension_type, 'defined_contribution',
+                         class: 't-pension_type_defined_contribution' %>
+      A pension based on how much you’ve paid into your pot
+    <% end %>
+
+    <%= f.label :pension_type_defined_benefit do %>
+      <%= f.radio_button :pension_type, 'defined_benefit',
+                         class: 't-pension_type_defined_benefit' %>
+      A pension based on your salary when you retire
+    <% end %>
+
+    <%= f.label :pension_type_both do %>
+      <%= f.radio_button :pension_type, 'both',
+                         class: 't-pension_type_both' %>
+      Both
+    <% end %>
+
+    <%= f.label :pension_type_unknown do %>
+      <%= f.radio_button :pension_type, 'unknown',
+                         class: 't-pension_type_unknown' %>
+      I don’t know
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>How do you expect to use this service?</legend>
+    <p>Select all that apply</p>
+
+    <%= f.label :channel_preference_web do %>
+      <%= f.check_box :channel_preference_web,
+                      class: 't-channel_preference_web' %>
+      I would read information online
+    <% end %>
+
+    <%= f.label :channel_preference_phone do %>
+      <%= f.check_box :channel_preference_phone,
+                      class: 't-channel_preference_phone' %>
+      I would speak to a pensions expert on the phone
+    <% end %>
+
+    <%= f.label :channel_preference_face_to_face do %>
+      <%= f.check_box :channel_preference_face_to_face,
+                      class: 't-channel_preference_face_to_face' %>
+      I would have a face-to-face session with a pensions expert
+    <% end %>
+  </fieldset>
+
+  <%= f.label :wishlist %>
+  <%= f.text_area :wishlist, class: 't-wishlist' %>
+
+  <%= f.submit class: 't-submit' %>
+<% end %>
