@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resource :user_profile, only: %i(new create), path: 'profile', path_names: { new: 'register' }
+  root to: 'user_profiles#new'
+  get '/', as: 'new_user_profile', to: 'user_profiles#new'
+  post '/', as: 'user_profile', to: 'user_profiles#create'
 end
