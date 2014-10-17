@@ -2,7 +2,10 @@
 <html>
 <head>
   <%= display_meta_tags site: 'GOV.UK', separator: '-', reverse: true %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <!--[if gt IE 8]><!--><%= stylesheet_link_tag 'register-your-interest', media: 'all' %><!--<![endif]-->
+  <!--[if IE 6]><%= stylesheet_link_tag 'register-your-interest-ie6', media: 'all' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'register-your-interest-ie7', media: 'all' %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag 'register-your-interest-ie8', media: 'all' %><![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
