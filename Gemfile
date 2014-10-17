@@ -10,7 +10,6 @@ gem 'slimmer', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
-  gem 'pry-rails'
   gem 'spring'
   gem 'spring-commands-cucumber'
   gem 'spring-commands-rspec'
@@ -23,5 +22,6 @@ group :test do
 end
 
 group :development, :test do
+  gem 'pry-rails'
   gem 'dotenv-rails'
 end
