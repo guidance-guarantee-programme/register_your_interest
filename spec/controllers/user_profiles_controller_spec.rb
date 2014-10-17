@@ -16,7 +16,7 @@ RSpec.describe UserProfilesController, type: :controller do
         'age' => '55',
         'email' => 'joe.bloggs@example.com',
         'retirement_preference' => '6_months',
-        'pension_type_defined_contribution' => true,
+        'pension_type' => 'defined_contribution',
         'channel_preference_phone' => true,
         'channel_preference_web' => true,
         'wishlist' => 'Some reassurance and a clearer understanding of my options.',
@@ -30,6 +30,14 @@ RSpec.describe UserProfilesController, type: :controller do
       expect(service).to receive(:call).with(user_profile_data)
 
       post :create, user_profile: user_profile_data
+    end
+
+    context 'without user profile data' do
+      it 'redirects to GET new' do
+        post :create
+
+        expect(response).to redirect_to(new_user_profile_path)
+      end
     end
   end
 end
