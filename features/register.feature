@@ -1,4 +1,3 @@
-@wip
 Feature: Register
   As a user
   I want to register my interest in the service

@@ -2,8 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
+gem 'govuk_frontend_toolkit'
+gem 'meta-tags'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
+gem 'slimmer', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
@@ -17,4 +20,8 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails', '~> 3.0.0'
   gem 'site_prism'
+end
+
+group :development, :test do
+  gem 'dotenv-rails'
 end

@@ -1,0 +1,29 @@
+@import "elements/helpers";
+@import "elements/reset";
+@import "elements/elements-typography";
+@import "elements/layout";
+@import "elements/forms";
+@import "elements/tables";
+@import "elements/buttons";
+@import "elements/details";
+@import "elements/lists";
+@import "elements/panels";
+@import "elements/icons";
+
+.site-width-container {
+  @extend %site-width-container;
+}
+
+.new_user_profile {
+  input[type="text"] {
+    margin:0;
+    font-size: 19px;
+    padding:4px;
+  }
+}
+
+.alpha-label {
+  @include media(tablet){
+    margin: 0 30px;
+  }
+}

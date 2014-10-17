@@ -1,0 +1,136 @@
+<h1 class="heading-xlarge"><%= title 'Register your interest' %></h1>
+
+<div class="text">
+  <p>The government is creating a new service to help people understand what they can do with their pension pots
+    before they retire.</p>
+
+  <p>We would like you to take part in testing the service. This will help us find out more about what kind of
+    pension guidance people are looking for.</p>
+
+  <p>If you’d like to take part, fill in the form and send it back to us.</p>
+</div>
+
+<%= form_for @user_profile, url: user_profile_path, class: 'form' do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, 'Name', class: 'form-label-bold' %>
+    <%= f.text_field :name, class: %w(t-name form-control) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :age, class: 'form-label-bold' %>
+    <%= f.text_field :age, class: %w(t-age form-control form-control-1-8) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'form-label-bold' %>
+    <%= f.text_field :email, class: %w(t-email form-control) %>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+      <legend class="form-label-bold">When do you plan to retire?</legend>
+
+      <%= f.label :retirement_preference_6_months, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, '6_months',
+                           class: 't-retirement_preference_6_months' %>
+        In the next 6 months
+      <% end %>
+
+      <%= f.label :retirement_preference_6_to_12_months, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, '6_to_12_months',
+                           class: 't-retirement_preference_6_to_12_months' %>
+        In the next 6 to 12 months
+      <% end %>
+
+      <%= f.label :retirement_preference_1_to_5_years, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, '1_to_5_years',
+                           class: 't-retirement_preference_1_to_5_years' %>
+        In the next 1 to 5 years
+      <% end %>
+
+      <%= f.label :retirement_preference_more_than_5_years, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, 'more_than_5_years',
+                           class: 't-retirement_preference_more_than_5_years' %>
+        More than 5 years
+      <% end %>
+
+      <%= f.label :retirement_preference_retired, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, 'retired',
+                           class: 't-retirement_preference_retired' %>
+        I'm already retired
+      <% end %>
+
+      <%= f.label :retirement_preference_unknown, class: 'block-label' do %>
+        <%= f.radio_button :retirement_preference, 'unknown',
+                           class: 't-retirement_preference_unknown' %>
+        I don’t know
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+      <legend class="form-label-bold">What type of pension do you have?</legend>
+
+      <%= f.label :pension_type_defined_contribution, class: 'block-label' do %>
+        <%= f.radio_button :pension_type, 'defined_contribution',
+                           class: 't-pension_type_defined_contribution' %>
+        A pension based on how much you’ve paid into your pot
+      <% end %>
+
+      <%= f.label :pension_type_defined_benefit, class: 'block-label' do %>
+        <%= f.radio_button :pension_type, 'defined_benefit',
+                           class: 't-pension_type_defined_benefit' %>
+        A pension based on your salary when you retire
+      <% end %>
+
+      <%= f.label :pension_type_both, class: 'block-label' do %>
+        <%= f.radio_button :pension_type, 'both',
+                           class: 't-pension_type_both' %>
+        Both
+      <% end %>
+
+      <%= f.label :pension_type_unknown, class: 'block-label' do %>
+        <%= f.radio_button :pension_type, 'unknown',
+                           class: 't-pension_type_unknown' %>
+        I don’t know
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+      <legend class="form-label-bold">How do you expect to use this service?</legend>
+      <p>Select all that apply</p>
+
+      <%= f.label :channel_preference_web, class: 'block-label' do %>
+        <%= f.check_box :channel_preference_web,
+                        class: 't-channel_preference_web' %>
+        I would read information online
+      <% end %>
+
+      <%= f.label :channel_preference_phone, class: 'block-label' do %>
+        <%= f.check_box :channel_preference_phone,
+                        class: 't-channel_preference_phone' %>
+        I would speak to a pensions expert on the phone
+      <% end %>
+
+      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
+        <%= f.check_box :channel_preference_face_to_face,
+                        class: 't-channel_preference_face_to_face' %>
+        I would have a face-to-face session with a pensions expert
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :wishlist, 'What would you like to get from this service?', class: 'form-label-bold' %>
+    <%= f.text_area :wishlist, class: %w(t-wishlist form-control) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'Submit', class: %w(t-submit button) %>
+  </div>
+
+<% end %>
