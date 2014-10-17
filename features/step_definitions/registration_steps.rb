@@ -21,5 +21,17 @@ Then(/^they are shown a thank you message$/) do
 end
 
 Then(/^they are captured and saved$/) do
-  pending
+  repo = UserProfileRepository.new
+  user_profile_data = repo.read(email: 'joe.bloggs@example.com')
+
+  expect(user_profile_data).to eq({
+    name: 'Joe Bloggs',
+    age: 55,
+    email: 'joe.bloggs@example.com',
+    retirement_preference_6_months: true,
+    pension_type_defined_contribution: true,
+    channel_preference_phone: true,
+    channel_preference_web: true,
+    wishlist: 'Some reassurance and a clearer understanding of my options.',
+  })
 end
