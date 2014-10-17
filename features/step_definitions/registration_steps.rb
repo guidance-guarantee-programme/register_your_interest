@@ -22,14 +22,17 @@ end
 
 Then(/^they are captured and saved$/) do
   repo = UserProfileRepository.new
+
   user_profile_data = repo.read(email: 'joe.bloggs@example.com')
+  user_profile_data.delete(:id)
 
   expect(user_profile_data).to eq({
     name: 'Joe Bloggs',
-    age: 55,
+    age: '55',
     email: 'joe.bloggs@example.com',
-    retirement_preference_6_months: true,
-    pension_type_defined_contribution: true,
+    retirement_preference: '6_months',
+    pension_type: 'defined_contribution',
+    channel_preference_face_to_face: false,
     channel_preference_phone: true,
     channel_preference_web: true,
     wishlist: 'Some reassurance and a clearer understanding of my options.',

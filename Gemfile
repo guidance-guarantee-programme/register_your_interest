@@ -8,6 +8,8 @@ gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'slimmer', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'sequel', '~> 4.0'
+gem 'sqlite3'
 
 group :development do
   gem 'spring'

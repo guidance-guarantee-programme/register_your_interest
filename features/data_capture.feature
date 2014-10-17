@@ -1,4 +1,3 @@
-@wip
 Feature: Data capture
   As a service manager
   I want to capture the details of users interested in the service
