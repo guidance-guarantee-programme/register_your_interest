@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Authentication
   include Slimmer::Headers
 
   protect_from_forgery with: :exception
