@@ -10,6 +10,7 @@ gem 'slimmer', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'sequel', '~> 4.0'
 gem 'sqlite3'
+gem 'unicorn'
 
 group :development do
   gem 'spring'
