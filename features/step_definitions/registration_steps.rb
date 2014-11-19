@@ -17,7 +17,7 @@ Then(/^they are shown a thank you message$/) do
   profile = Pages::UserProfile.new
 
   expect(profile).to be_displayed
-  expect(profile).to have_heading(text: /^Thank you$/)
+  expect(profile).to have_heading(text: /^Thank you for your interest$/)
 end
 
 Then(/^they are captured and saved$/) do
