@@ -1,13 +1,15 @@
-<h1 class="heading-xlarge"><%= title 'Register your interest' %></h1>
+<% content_for :page_title, 'Register your interest in pension guidance - GOV.UK' %>
 
 <div class="text">
+  <h1 class="heading-xlarge">Register your interest in pension guidance</h1>
+
   <p>The government is creating a new service to help people understand what they can do with their pension pots
     before they retire.</p>
 
   <p>We would like you to take part in testing the service. This will help us find out more about what kind of
     pension guidance people are looking for.</p>
 
-  <p>If you’d like to take part, fill in the form and send it back to us.</p>
+  <p>If you’d like to take part, complete this form.</p>
 </div>
 
 <%= form_for @user_profile, url: user_profile_path, class: 'form' do |f| %>

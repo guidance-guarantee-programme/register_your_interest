@@ -10,10 +10,6 @@
 @import "elements/panels";
 @import "elements/icons";
 
-.site-width-container {
-  @extend %site-width-container;
-}
-
 .new_user_profile {
   input[type="text"] {
     margin:0;
@@ -22,8 +18,11 @@
   }
 }
 
-.alpha-label {
-  @include media(tablet){
-    margin: 0 30px;
+.l-page-container {
+  @extend %site-width-container;
+  @extend %contain-floats;
+  padding-bottom: $gutter;
+  @include media(desktop) {
+    padding-bottom: $gutter*3;
   }
 }
