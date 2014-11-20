@@ -23,6 +23,11 @@ group :test do
   gem 'site_prism'
 end
 
+group :production do
+  gem 'foreman'
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
