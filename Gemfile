@@ -24,6 +24,7 @@ group :test do
 end
 
 group :production do
+  gem 'foreman'
   gem 'rails_12factor'
 end
 
