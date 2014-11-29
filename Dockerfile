@@ -59,5 +59,8 @@ VOLUME /srv/public
 
 EXPOSE 5000
 
+# foreman + unicorn doesn't exit on SIGTERM under dash
+RUN ln -sf /bin/bash /bin/sh
+
 CMD ["start"]
 ENTRYPOINT ["/srv/bin/foreman"]
