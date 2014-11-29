@@ -60,4 +60,4 @@ VOLUME /srv/public
 EXPOSE 5000
 
 CMD ["start"]
-ENTRYPOINT ["./bin/foreman"]
+ENTRYPOINT ["/srv/bin/foreman"]
