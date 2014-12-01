@@ -37,7 +37,7 @@ ADD Gemfile.lock /srv/Gemfile.lock
 
 RUN bundle install \
       --binstubs \
-      --deployment
+      --without=development
 
 ADD .bowerrc /srv/.bowerrc
 ADD bower.json /srv/bower.json

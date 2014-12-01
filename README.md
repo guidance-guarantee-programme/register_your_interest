@@ -59,6 +59,14 @@ $ fig build
 $ fig up
 ```
 
+## Testing
+
+To run the complete test suite:
+
+```sh
+$ fig run --entrypoint ./bin/rake web
+```
+
 ## Heroku
 
 To run this application on [Heroku], enable [multiple buildpack][heroku-buildpack-multi] support:
