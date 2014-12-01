@@ -1,5 +1,7 @@
 language: ruby
 cache: bundler
+env:
+  DATABASE_URL: postgres://postgres@localhost:5432/travis_ci_test
 node_js:
   - "0.10"
 rvm:
@@ -7,3 +9,5 @@ rvm:
 before_script:
   - npm install -g bower
   - bower install
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
