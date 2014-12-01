@@ -21,7 +21,7 @@ RUN apt-get update -q && \
     truncate -s 0 /var/log/*log
 
 RUN apt-get update -q && \
-    apt-get install -qy build-essential ca-certificates git libxml2-dev libxslt-dev libsqlite3-dev rsync \
+    apt-get install -qy build-essential ca-certificates git libxml2-dev libxslt-dev libpq-dev rsync \
                     --no-install-recommends && \
 
     apt-get clean && \

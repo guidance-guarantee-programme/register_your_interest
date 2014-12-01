@@ -11,6 +11,7 @@ An app to allow users to register their interest in pension guidance.
 * [Git]
 * [Node.js][Node]
 * [NPM]
+* [PostgreSQL]
 * [Ruby 2.1.5][Ruby]
 
 
@@ -34,6 +35,15 @@ Make sure all Bower packages are available to the application:
 $ bower install
 ```
 
+Create the required databases and apply the migrations:
+
+```sh
+$ createdb register_your_interest
+$ createdb register_your_interest_test
+$ sequel -m db/migrations/ postgres://localhost/register_your_interest
+$ sequel -m db/migrations/ postgres://localhost/register_your_interest_test
+```
+
 ## Usage
 
 To start the application:
@@ -51,4 +61,5 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [git]: http://git-scm.com
 [node]: http://nodejs.org
 [npm]: https://www.npmjs.org
+[postgresql]: http://www.postgresql.org
 [ruby]: http://www.ruby-lang.org/en
