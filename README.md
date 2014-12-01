@@ -45,10 +45,18 @@ $ ./bin/sequel -m db/migrations/ postgres://localhost/register_your_interest_tes
 
 ## Usage
 
-To start the application:
+1. Ensure [Docker] and [Fig] are installed.
+
+1. Build the stack:
 
 ```sh
-$ ./bin/foreman s
+$ fig build
+```
+
+1. Start the stack:
+
+```sh
+$ fig up
 ```
 
 ## Heroku
@@ -64,6 +72,8 @@ $ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-mu
 Please see the [contributing guidelines](/CONTRIBUTING.md).
 
 [bundler]: http://bundler.io
+[docker]: https://www.docker.com
+[fig]: http://www.fig.sh
 [git]: http://git-scm.com
 [heroku]: https://www.heroku.com
 [heroku-buildpack-multi]: https://github.com/ddollar/heroku-buildpack-multi
