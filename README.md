@@ -42,6 +42,10 @@ To start the application:
 $ ./bin/foreman s
 ```
 
+## Contributing
+
+Please see the [contributing guidelines](/CONTRIBUTING.md).
+
 [bower]: http://bower.io
 [bundler]: http://bundler.io
 [git]: http://git-scm.com
