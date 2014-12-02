@@ -1,11 +1,19 @@
 class UserProfileRepository
-  DB = Sequel.connect(ENV['DATABASE_URL'])
+  class << self
+    attr_accessor :connection
+  end
 
   def create(user_profile_data)
-    DB[:user_profiles].insert(user_profile_data)
+    user_profiles.insert(user_profile_data)
   end
 
   def read(options={})
-    DB[:user_profiles].filter(options).first
+    user_profiles.filter(options).first
+  end
+
+  private
+
+  def user_profiles
+    self.class.connection[:user_profiles]
   end
 end
