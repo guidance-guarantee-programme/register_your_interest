@@ -4,6 +4,7 @@ ruby '2.1.5'
 
 gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
+gem 'rack-timeout'
 gem 'rails', '4.1.8'
 gem 'retriable'
 gem 'sass-rails', '~> 4.0.3'

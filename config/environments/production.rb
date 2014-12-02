@@ -40,3 +40,5 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
 end
+
+Rack::Timeout.timeout = 5 # seconds
