@@ -52,6 +52,14 @@ To start the application:
 $ ./bin/foreman s
 ```
 
+## Heroku
+
+To run this application on [Heroku], enable [multiple buildpack][heroku-buildpack-multi] support:
+
+```sh
+$ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
+```
+
 ## Contributing
 
 Please see the [contributing guidelines](/CONTRIBUTING.md).
@@ -59,6 +67,8 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [bower]: http://bower.io
 [bundler]: http://bundler.io
 [git]: http://git-scm.com
+[heroku]: https://www.heroku.com
+[heroku-buildpack-multi]: https://github.com/ddollar/heroku-buildpack-multi
 [node]: http://nodejs.org
 [npm]: https://www.npmjs.org
 [postgresql]: http://www.postgresql.org
