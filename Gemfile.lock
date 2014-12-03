@@ -108,6 +108,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    retriable (1.4.1)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -177,6 +178,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.1.8)
   rails_12factor
+  retriable
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
   sequel (~> 4.0)
