@@ -31,7 +31,7 @@
       <div class="l-column-two-thirds">
         <main role="main" id="content" tabindex="-1">
           <article role="article" class="govspeak">
-            <%= yield %>
+            <%= content_for?(:article) ? yield(:article) : yield %>
           </article>
         </main>
       </div>
