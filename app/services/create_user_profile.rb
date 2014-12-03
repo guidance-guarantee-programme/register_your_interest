@@ -7,6 +7,8 @@ class CreateUserProfile
   end
 
   def call(user_profile_data)
-    repository.create(user_profile_data)
+    Retriable.retriable do
+      repository.create(user_profile_data)
+    end
   end
 end
