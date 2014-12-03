@@ -4,12 +4,12 @@ ruby '2.1.5'
 
 gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
+gem 'pg'
 gem 'rack-timeout'
 gem 'rails', '4.1.8'
 gem 'retriable'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sequel', '~> 4.0'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
