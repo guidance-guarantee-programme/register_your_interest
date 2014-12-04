@@ -10,6 +10,11 @@
 @import "elements/panels";
 @import "elements/icons";
 
+// main has a tabindex=-1 to make the 'skip to main content' link work - we don't want this to have a focus state
+main:focus {
+  outline: none;
+}
+
 .new_user_profile {
   input[type="text"] {
     margin:0;
