@@ -11,3 +11,10 @@ before_script:
   - bower install
   - psql -c 'create database travis_ci_test;' -U postgres
   - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
+deploy:
+  provider: heroku
+  app: ggp-register-interest
+  api_key:
+    secure: MkoZagFaPslKSNelShv4rN827K6jd3Gp2PdCC/6lKJavA8LTnNzBv60yugZy1cUhjHGFMem2ZSOf1dRjRJrzgCCx9arMoHZMgK9dm/m4XEQN7qQd2ry3zEKbR9MrBLhMAzF6Yj3pqnqVEVcj9L0K83zoqn2oEwsI+Wo6Oh0yuis=
+  on:
+    repo: guidance-guarantee-programme/register_your_interest
