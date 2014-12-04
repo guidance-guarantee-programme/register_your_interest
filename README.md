@@ -6,7 +6,6 @@ An app to allow users to register their interest in pension guidance.
 
 ## Prerequisites
 
-* [Bower]
 * [Bundler]
 * [Git]
 * [Node.js][Node]
@@ -64,7 +63,6 @@ $ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-mu
 
 Please see the [contributing guidelines](/CONTRIBUTING.md).
 
-[bower]: http://bower.io
 [bundler]: http://bundler.io
 [git]: http://git-scm.com
 [heroku]: https://www.heroku.com

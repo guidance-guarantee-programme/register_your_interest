@@ -28,10 +28,6 @@ RUN apt-get update -q && \
     cd /var/lib/apt/lists && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
 
-RUN npm install -g bower && \
-
-    truncate -s 0 /var/log/*log
-
 RUN echo 'gem: --no-document' > /etc/gemrc && \
     gem update --system && \
     gem install bundler -q
@@ -45,11 +41,9 @@ RUN bundle install \
 
 ADD .bowerrc /srv/.bowerrc
 ADD bower.json /srv/bower.json
+ADD package.json /srv/package.json
 
-RUN bower install \
-      --allow-root \
-      --config.interactive=false \
-      --production
+RUN npm install --unsafe-perm
 
 ADD . /srv
 
