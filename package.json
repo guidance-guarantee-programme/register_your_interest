@@ -1,5 +1,6 @@
 {
   "name": "register_your_interest",
+  "private": true,
   "dependencies": {
     "bower": "*"
   },
