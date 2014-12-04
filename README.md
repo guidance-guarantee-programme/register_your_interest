@@ -40,8 +40,8 @@ Create the required databases and apply the migrations:
 ```sh
 $ createdb register_your_interest
 $ createdb register_your_interest_test
-$ sequel -m db/migrations/ postgres://localhost/register_your_interest
-$ sequel -m db/migrations/ postgres://localhost/register_your_interest_test
+$ ./bin/sequel -m db/migrations/ postgres://localhost/register_your_interest
+$ ./bin/sequel -m db/migrations/ postgres://localhost/register_your_interest_test
 ```
 
 ## Usage
