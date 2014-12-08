@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bugsnag (2.5.1)
+      httparty (>= 0.6, < 1.0)
+      multi_json (~> 1.0)
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -68,6 +71,9 @@ GEM
     govuk_template (0.10.1)
       rails (>= 3.1)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     json (1.8.1)
     kgio (2.9.2)
@@ -78,6 +84,7 @@ GEM
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_test (0.1.1)
+    multi_xml (0.5.5)
     nokogiri (1.5.11)
     pg (0.17.1)
     pry (0.10.1)
@@ -173,6 +180,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bugsnag
   cucumber-rails
   dotenv-rails
   foreman
