@@ -89,6 +89,8 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-throttle (0.4.0)
+      rack (>= 1.0.0)
     rack-timeout (0.1.1)
     rails (4.1.8)
       actionmailer (= 4.1.8)
@@ -181,6 +183,7 @@ DEPENDENCIES
   govuk_template
   pg
   pry-rails
+  rack-throttle
   rack-timeout
   rails (= 4.1.8)
   rails_12factor
