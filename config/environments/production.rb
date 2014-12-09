@@ -13,6 +13,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Configure Fastly as our asset host
+  config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
+
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
 
