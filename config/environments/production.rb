@@ -16,6 +16,9 @@ Rails.application.configure do
   # Configure Fastly as our asset host
   config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
 
+  # Configure cache control for static assets: "public, s-maxage={ 1 year }, maxage={ 24 hours }"
+  config.static_cache_control = 'public, s-maxage=31536000, maxage=86400'
+
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
 
