@@ -1,6 +1,6 @@
 module Pages
   class NewUserProfile < SitePrism::Page
-    set_url '/'
+    set_url '/register'
 
     element :name, '.t-name'
     element :age, '.t-age'
