@@ -31,6 +31,40 @@
 
   <div class="form-group">
     <fieldset>
+      <legend class="form-label-bold">How do you expect to use this service?</legend>
+      <p>Select all that apply</p>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_web]', 0, id: nil %>
+      <%= f.label :channel_preference_web, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_web]', 1,
+                          @user_profile.channel_preference_web,
+                          class: 't-channel_preference_web' %>
+
+        I would read information online
+      <% end %>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
+      <%= f.label :channel_preference_phone, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
+                          @user_profile.channel_preference_phone,
+                          class: 't-channel_preference_phone' %>
+
+        I would speak to a pensions expert on the phone
+      <% end %>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
+      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
+                          @user_profile.channel_preference_face_to_face,
+                          class: 't-channel_preference_face_to_face' %>
+
+        I would have a face-to-face session with a pensions expert
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
       <legend class="form-label-bold">When do you plan to retire?</legend>
 
       <%= f.label :retirement_preference_6_months, class: 'block-label' do %>
@@ -97,40 +131,6 @@
         <%= f.radio_button :pension_type, 'unknown',
                            class: 't-pension_type_unknown' %>
         I don’t know
-      <% end %>
-    </fieldset>
-  </div>
-
-  <div class="form-group">
-    <fieldset>
-      <legend class="form-label-bold">How do you expect to use this service?</legend>
-      <p>Select all that apply</p>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_web]', 0, id: nil %>
-      <%= f.label :channel_preference_web, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_web]', 1,
-                          @user_profile.channel_preference_web,
-                          class: 't-channel_preference_web' %>
-
-        I would read information online
-      <% end %>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
-      <%= f.label :channel_preference_phone, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
-                          @user_profile.channel_preference_phone,
-                          class: 't-channel_preference_phone' %>
-
-        I would speak to a pensions expert on the phone
-      <% end %>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
-      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
-                          @user_profile.channel_preference_face_to_face,
-                          class: 't-channel_preference_face_to_face' %>
-
-        I would have a face-to-face session with a pensions expert
       <% end %>
     </fieldset>
   </div>
