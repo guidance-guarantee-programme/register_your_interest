@@ -30,6 +30,7 @@ end
 
 group :production do
   gem 'foreman'
+  gem 'rack-cache'
   gem 'rails_12factor'
 end
 

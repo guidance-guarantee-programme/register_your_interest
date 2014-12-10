@@ -45,6 +45,14 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Use Rack::Cache
+  config.middleware.use(Rack::Cache,
+    verbose: true,
+    metastore: "heap:/",
+    entitystore: "file:#{Rails.application.root}/tmp/cache/rack/body",
+    allow_revalidate: false
+  )
+
 end
 
 Rack::Timeout.timeout = 5 # seconds
