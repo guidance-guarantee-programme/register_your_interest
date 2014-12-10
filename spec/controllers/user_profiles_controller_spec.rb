@@ -7,6 +7,10 @@ RSpec.describe UserProfilesController, type: :controller do
     it 'assigns a new instance of UserProfile' do
       expect(assigns(:user_profile)).to be_an_instance_of(UserProfile)
     end
+
+    it 'tells downstream servers and clients to cache the response' do
+      expect(response.headers.fetch('Cache-Control')).to eq('max-age=600, public')
+    end
   end
 
   describe 'POST create' do
