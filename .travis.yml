@@ -7,8 +7,7 @@ node_js:
 rvm:
   - 2.1.5
 before_script:
-  - npm install -g bower
-  - bower install
+  - npm install
   - psql -c 'create database travis_ci_test;' -U postgres
   - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
 after-script:
