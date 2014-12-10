@@ -1,6 +1,9 @@
 language: ruby
 cache: bundler
 env:
+  secure:
+    - "Q+A79g0m3SyD3QMNi4vIWl9vMclClXQqojUnZb/8a2gMKlFCj82+odpqY0XRHqWanAy4VTzf3JoiSFam7shgaYbVAczFHjeym9ddgEE6mq4O6wh4a2JjME8lCkSjgpvW0aL7pKtH4PVUNppIFL/EuErFw38ltL30ur4u3Kj0qGA="
+    - "BJwdnDXgtrta3KZ2XSJYQM5fThbyrcpODMzDIIUne5NBTG7SBMpbvS0op3Fa+Xip9GaL6CsoFOMn9u0D1rzGFKafLaa70qOt96Q6JcloAor4Ksm5sntwtWu1VGSJ9fXrxqsObX+pTBq3HPHfhOIgyIlkN8OfUpbrK8zQqoxJNQU="
   DATABASE_URL: postgres://postgres@localhost:5432/travis_ci_test
 node_js:
   - "0.10"
@@ -11,7 +14,7 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
 after_script:
-  - ./node_modules/.bin/travis-notify-geckoboard -a CtWcva5bwhpLmPgta2ep0lro6vqQ80guqhupcxl+v7pgmhKq7PwbLm8E8XESGlaZWIO4qCcjRj9TUsHCFRLk1SnZE5ZKXeVWOq8lh066saFKckjpKARsb2V1Mxa6du9eJms9lAynEHHnYt0Y6spHmxIni5q2HjWoBDtmiSydaGU= -w c4+l9mP4qFbu1ORNMgrfhU6Kvq03PPlSQmsfSGWVszXq4mAPhKqucGaHme5X01xj/V9w/9VGPYY+ad0EYUNDIveTaoD08gOiczay9fJupWwFQm1aZ7tHyNuRKV6/L6QGZO+LXWClFuTanigSf2Y8Rs0WNAbIiHibNtLAdghAtlQ=
+  - ./node_modules/.bin/travis-notify-geckoboard -a $GECKOBOARD_API_KEY -w $GECKOBOARD_WIDGET_KEY
 deploy:
   provider: heroku
   app: ggp-register-interest
