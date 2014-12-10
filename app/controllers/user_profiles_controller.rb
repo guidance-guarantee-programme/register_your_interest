@@ -4,6 +4,7 @@ class UserProfilesController < ApplicationController
 
   def new
     @user_profile = UserProfile.new
+    expires_in(10.minutes, public: true)
   end
 
   def create
