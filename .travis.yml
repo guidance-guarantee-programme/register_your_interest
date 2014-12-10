@@ -1,10 +1,10 @@
 language: ruby
 cache: bundler
 env:
-  secure:
-    - "Q+A79g0m3SyD3QMNi4vIWl9vMclClXQqojUnZb/8a2gMKlFCj82+odpqY0XRHqWanAy4VTzf3JoiSFam7shgaYbVAczFHjeym9ddgEE6mq4O6wh4a2JjME8lCkSjgpvW0aL7pKtH4PVUNppIFL/EuErFw38ltL30ur4u3Kj0qGA="
-    - "BJwdnDXgtrta3KZ2XSJYQM5fThbyrcpODMzDIIUne5NBTG7SBMpbvS0op3Fa+Xip9GaL6CsoFOMn9u0D1rzGFKafLaa70qOt96Q6JcloAor4Ksm5sntwtWu1VGSJ9fXrxqsObX+pTBq3HPHfhOIgyIlkN8OfUpbrK8zQqoxJNQU="
-  DATABASE_URL: postgres://postgres@localhost:5432/travis_ci_test
+  global:
+    - secure: "Q+A79g0m3SyD3QMNi4vIWl9vMclClXQqojUnZb/8a2gMKlFCj82+odpqY0XRHqWanAy4VTzf3JoiSFam7shgaYbVAczFHjeym9ddgEE6mq4O6wh4a2JjME8lCkSjgpvW0aL7pKtH4PVUNppIFL/EuErFw38ltL30ur4u3Kj0qGA="
+    - secure: "BJwdnDXgtrta3KZ2XSJYQM5fThbyrcpODMzDIIUne5NBTG7SBMpbvS0op3Fa+Xip9GaL6CsoFOMn9u0D1rzGFKafLaa70qOt96Q6JcloAor4Ksm5sntwtWu1VGSJ9fXrxqsObX+pTBq3HPHfhOIgyIlkN8OfUpbrK8zQqoxJNQU="
+    - DATABASE_URL=postgres://postgres@localhost:5432/travis_ci_test
 node_js:
   - "0.10"
 rvm:
