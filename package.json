@@ -2,7 +2,8 @@
   "name": "register_your_interest",
   "private": true,
   "dependencies": {
-    "bower": "*"
+    "bower": "*",
+    "travis-notify-geckoboard": "*"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install --allow-root --config.interactive=false --production"

@@ -11,6 +11,8 @@ before_script:
   - bower install
   - psql -c 'create database travis_ci_test;' -U postgres
   - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
+after-script:
+  - ./node_modules/.bin/travis-notify-geckoboard -a CtWcva5bwhpLmPgta2ep0lro6vqQ80guqhupcxl+v7pgmhKq7PwbLm8E8XESGlaZWIO4qCcjRj9TUsHCFRLk1SnZE5ZKXeVWOq8lh066saFKckjpKARsb2V1Mxa6du9eJms9lAynEHHnYt0Y6spHmxIni5q2HjWoBDtmiSydaGU= -w c4+l9mP4qFbu1ORNMgrfhU6Kvq03PPlSQmsfSGWVszXq4mAPhKqucGaHme5X01xj/V9w/9VGPYY+ad0EYUNDIveTaoD08gOiczay9fJupWwFQm1aZ7tHyNuRKV6/L6QGZO+LXWClFuTanigSf2Y8Rs0WNAbIiHibNtLAdghAtlQ=
 deploy:
   provider: heroku
   app: ggp-register-interest
