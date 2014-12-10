@@ -53,6 +53,8 @@ Rails.application.configure do
     allow_revalidate: false
   )
 
+  # Force SSL across all requests unless non-ssl requests are explicitly allowed
+  config.force_ssl = ENV['ALLOW_NON_SSL'] != 'true'
 end
 
 Rack::Timeout.timeout = 5 # seconds
