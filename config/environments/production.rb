@@ -47,7 +47,7 @@ Rails.application.configure do
 
   # Use Rack::CanonicalHost
   if (canonical_host = ENV['CANONICAL_HOST'])
-    config.middleware.insert_after(ActionDispatch::SSL, Rack::CanonicalHost, canonical_host)
+    config.middleware.use(Rack::CanonicalHost, canonical_host)
   end
 
   # Use Rack::Cache
