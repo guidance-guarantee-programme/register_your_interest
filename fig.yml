@@ -1,12 +1,15 @@
 web:
   build: .
-  ports:
-   - 5000:5000
-  links:
-   - db
+  command: /srv/bin/foreman start
   environment:
     - DATABASE_URL=postgres://postgres:postgres@db/postgres
     - SECRET_KEY_BASE=539e3443da64c1aa5b0a2578b5c908659d7a62cb700a97fa3fc0d4bbee9299e7da4824dd55d1d5dd1e0c50429694e5ae13128e72a0f1033e312c00d4d9e0893a
+  links:
+    - db
+  ports:
+    - 5000:5000
+#  volumes:
+#    - .:/srv
 db:
   image: postgres
   expose:
