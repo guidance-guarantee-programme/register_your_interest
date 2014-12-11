@@ -5,6 +5,7 @@ module Pages
     element :name, '.t-name'
     element :age, '.t-age'
     element :email, '.t-email'
+    element :region, '.t-region'
 
     element :retirement_preference_6_months, '.t-retirement_preference_6_months'
     element :retirement_preference_6_to_12_months, '.t-retirement_preference_6_to_12_months'

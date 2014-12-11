@@ -21,6 +21,10 @@ main:focus {
     font-size: 19px;
     padding:4px;
   }
+
+  select {
+    @include core-19;
+  }
 }
 
 .l-page-container {
