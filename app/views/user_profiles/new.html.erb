@@ -12,7 +12,7 @@
   <p>If you’d like to take part and get early access to our pilot service, complete this form.</p>
 </div>
 
-<%= form_for @user_profile, url: user_profile_path, class: 'form' do |f| %>
+<%= form_for @user_profile, url: user_profile_path, authenticity_token: false, class: 'form' do |f| %>
 
   <div class="form-group">
     <%= f.label :name, 'Name', class: 'form-label-bold' %>
