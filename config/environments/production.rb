@@ -45,6 +45,11 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Use Rack::CanonicalHost
+  if (canonical_host = ENV['CANONICAL_HOST'])
+    config.middleware.insert_after(ActionDispatch::SSL, Rack::CanonicalHost, canonical_host)
+  end
+
   # Use Rack::Cache
   config.middleware.use(Rack::Cache,
     verbose: true,
