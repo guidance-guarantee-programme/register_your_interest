@@ -8,6 +8,9 @@ RSpec.describe UserProfile, type: :model do
   it { is_expected.to respond_to :age }
   it { is_expected.to respond_to :age= }
 
+  it { is_expected.to respond_to :region }
+  it { is_expected.to respond_to :region= }
+
   it { is_expected.to respond_to :retirement_preference }
   it { is_expected.to respond_to :retirement_preference= }
 

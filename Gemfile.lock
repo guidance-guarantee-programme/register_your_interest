@@ -54,8 +54,6 @@ GEM
       rails (>= 3, < 5)
     diff-lcs (1.2.5)
     dotenv (1.0.2)
-    dotenv-rails (1.0.2)
-      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.1)
     foreman (0.63.0)
@@ -188,7 +186,7 @@ PLATFORMS
 DEPENDENCIES
   bugsnag
   cucumber-rails
-  dotenv-rails
+  dotenv
   foreman
   gaffe
   govuk_frontend_toolkit
