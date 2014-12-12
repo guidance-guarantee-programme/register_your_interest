@@ -1,0 +1,20 @@
+// main has a tabindex=-1 to make the 'skip to main content' link work - we don't want this to have a focus state
+main:focus {
+  outline: none;
+}
+
+input[type="text"] {
+  margin: 0;
+  font-size: 19px;
+  padding: 4px;
+}
+
+select {
+  @include core-19;
+}
+
+@include ie(6) {
+  legend {
+    color: $black;
+  }
+}
