@@ -1,8 +1,8 @@
 <% content_for :head do %>
-  <!--[if gt IE 8]><!--><%= stylesheet_link_tag 'register-your-interest', media: 'all' %><!--<![endif]-->
-  <!--[if IE 6]><%= stylesheet_link_tag 'register-your-interest-ie6', media: 'all' %><![endif]-->
-  <!--[if IE 7]><%= stylesheet_link_tag 'register-your-interest-ie7', media: 'all' %><![endif]-->
-  <!--[if IE 8]><%= stylesheet_link_tag 'register-your-interest-ie8', media: 'all' %><![endif]-->
+  <!--[if gt IE 8]><!--><%= stylesheet_link_tag 'register-your-interest', media: 'screen' %><!--<![endif]-->
+  <!--[if IE 6]><%= stylesheet_link_tag 'register-your-interest-ie6', media: 'screen' %><![endif]-->
+  <!--[if IE 7]><%= stylesheet_link_tag 'register-your-interest-ie7', media: 'screen' %><![endif]-->
+  <!--[if IE 8]><%= stylesheet_link_tag 'register-your-interest-ie8', media: 'screen' %><![endif]-->
 <% end %>
 
 <% content_for :body_start do %>
@@ -28,26 +28,30 @@
 <% end %>
 
 <% content_for :content do %>
-  <div class="l-page-container">
-    <div class="phase-banner">
-      <p>
-        <strong class="phase-tag">ALPHA</strong>
-        <span>This is a new service – your
-          <a href="mailto:pensions-alpha-feedback@digital.cabinet-office.gov.uk?Subject=Feedback%20for%20Pension%20Guidance%20Alpha%20Service">
-            feedback</a> will help us to improve it.
-        </span>
-      </p>
-    </div>
+  <div class="l-page-container-wrapper">
 
-    <div class="l-grid-row">
-      <div class="l-column-two-thirds">
-        <main role="main" id="content" tabindex="-1">
-          <article role="article" class="govspeak">
-            <%= content_for?(:article) ? yield(:article) : yield %>
-          </article>
-        </main>
+    <div class="l-page-container">
+      <div class="phase-banner">
+        <p>
+          <strong class="phase-tag">ALPHA</strong>
+          <span>This is a new service – your
+            <a href="mailto:pensions-alpha-feedback@digital.cabinet-office.gov.uk?Subject=Feedback%20for%20Pension%20Guidance%20Alpha%20Service">
+              feedback</a> will help us to improve it.
+          </span>
+        </p>
+      </div>
+
+      <div class="l-grid-row">
+        <div class="l-column-two-thirds">
+          <main role="main" id="content" tabindex="-1">
+            <article role="article" class="l-text">
+              <%= content_for?(:article) ? yield(:article) : yield %>
+            </article>
+          </main>
+        </div>
       </div>
     </div>
+
   </div>
 <% end %>
 
