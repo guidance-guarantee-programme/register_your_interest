@@ -30,6 +30,7 @@ group :test do
 end
 
 group :production do
+  gem 'dalli'
   gem 'foreman'
   gem 'rack-cache'
   gem 'rails_12factor'

@@ -46,12 +46,24 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Use Rack::Cache
-  config.middleware.use(Rack::Cache,
-    verbose: true,
-    metastore: "heap:/",
-    entitystore: "file:#{Rails.application.root}/tmp/cache/rack/body",
-    allow_revalidate: false
+  # "value_max_bytes" is set to prevent Dalli from throwing exceptions for entities larger than
+  # emcached's default 1MB max (memcached will just ignore them silently).
+  # See https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
+  dalli_client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
+    username: ENV["MEMCACHIER_USERNAME"],
+    password: ENV["MEMCACHIER_PASSWORD"],
+    failover: true,
+    socket_timeout: 1.5,
+    socket_failure_delay: 0.2,
+    value_max_bytes: 10485760
   )
+
+  config.action_dispatch.rack_cache = {
+    verbose: true,
+    metastore: dalli_client,
+    entitystore: dalli_client,
+    allow_revalidate: false
+  }
 
   # Force SSL across all requests unless non-ssl requests are explicitly allowed
   config.force_ssl = ENV['ALLOW_NON_SSL'] != 'true'
