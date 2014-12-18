@@ -25,9 +25,8 @@ Then(/^they are captured and saved$/) do
   repo = UserProfileRepository.new
 
   user_profile_data = repo.read(email: 'joe.bloggs@example.com')
-  user_profile_data.delete(:id)
 
-  expect(user_profile_data).to eq({
+  expect(user_profile_data).to include({
     name: 'Joe Bloggs',
     age: '55',
     email: 'joe.bloggs@example.com',
