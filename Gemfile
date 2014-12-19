@@ -17,12 +17,6 @@ gem 'sequel', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
-group :development do
-  gem 'spring'
-  gem 'spring-commands-cucumber'
-  gem 'spring-commands-rspec'
-end
-
 group :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails', '~> 3.0.0'
