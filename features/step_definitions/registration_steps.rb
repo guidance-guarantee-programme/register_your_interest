@@ -37,5 +37,6 @@ Then(/^they are captured and saved$/) do
     channel_preference_phone: true,
     channel_preference_web: true,
     wishlist: 'Some reassurance and a clearer understanding of my options.',
+    created_at: Time.now,
   })
 end
