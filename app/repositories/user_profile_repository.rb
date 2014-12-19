@@ -4,6 +4,9 @@ class UserProfileRepository
   end
 
   def create(user_profile_data)
+    if user_profiles.columns.include?(:created_at)
+      user_profile_data = user_profile_data.merge(created_at: Time.now)
+    end
     user_profiles.insert(user_profile_data)
   end
 
