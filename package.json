@@ -1,6 +1,9 @@
 {
   "name": "register_your_interest",
   "private": true,
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "bower": "*",
     "travis-notify-geckoboard": "*"
