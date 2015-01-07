@@ -16,11 +16,32 @@ Rails.application.configure do
   # Configure Fastly as our asset host
   config.action_controller.asset_host = ENV['FASTLY_CDN_URL']
 
+  # Use Rack::Cache
+  # "value_max_bytes" is set to prevent Dalli from throwing exceptions for entities larger than
+  # emcached's default 1MB max (memcached will just ignore them silently).
+  # See https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
+  dalli_client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
+  username: ENV["MEMCACHIER_USERNAME"],
+  password: ENV["MEMCACHIER_PASSWORD"],
+  failover: true,
+  socket_timeout: 1.5,
+  socket_failure_delay: 0.2,
+  value_max_bytes: 10485760
+  )
+
+  config.action_dispatch.rack_cache = {
+    verbose: true,
+    metastore: dalli_client,
+    entitystore: dalli_client,
+    allow_revalidate: false
+  }
+
   # Configure cache control for static assets: "public, s-maxage={ 1 year }, maxage={ 24 hours }"
   config.static_cache_control = 'public, s-maxage=31536000, maxage=86400'
 
-  # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  # Disable serving static files from the `/public` folder by default since
+  # Apache or NGINX already handles this.
+  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -29,11 +50,32 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
-  # Generate digests for assets URLs.
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
-  # Set to :debug to see everything in the log.
-  config.log_level = :info
+  # Specifies the header that your server uses for sending files.
+  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  config.force_ssl = ENV['ALLOW_NON_SSL'] != 'true'
+
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :debug
+
+  # Prepend all log lines with the following tags.
+  # config.log_tags = [ :subdomain, :uuid ]
+
+  # Use a different logger for distributed setups.
+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+
+  # Use a different cache store in production.
+  # config.cache_store = :mem_cache_store
+
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+  # config.action_controller.asset_host = 'http://assets.example.com'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -45,28 +87,6 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  # Use Rack::Cache
-  # "value_max_bytes" is set to prevent Dalli from throwing exceptions for entities larger than
-  # emcached's default 1MB max (memcached will just ignore them silently).
-  # See https://devcenter.heroku.com/articles/rack-cache-memcached-rails31
-  dalli_client = Dalli::Client.new((ENV["MEMCACHIER_SERVERS"] || "").split(","),
-    username: ENV["MEMCACHIER_USERNAME"],
-    password: ENV["MEMCACHIER_PASSWORD"],
-    failover: true,
-    socket_timeout: 1.5,
-    socket_failure_delay: 0.2,
-    value_max_bytes: 10485760
-  )
-
-  config.action_dispatch.rack_cache = {
-    verbose: true,
-    metastore: dalli_client,
-    entitystore: dalli_client,
-    allow_revalidate: false
-  }
-
-  # Force SSL across all requests unless non-ssl requests are explicitly allowed
-  config.force_ssl = ENV['ALLOW_NON_SSL'] != 'true'
 end
 
 Rack::Timeout.timeout = 5 # seconds
