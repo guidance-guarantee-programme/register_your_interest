@@ -12,7 +12,7 @@ gem 'rack-canonical-host'
 gem 'rack-timeout'
 gem 'rails', '4.1.8'
 gem 'retriable'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 4.0'
 gem 'sequel', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
@@ -20,7 +20,7 @@ gem 'unicorn'
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.0'
   gem 'site_prism'
   gem 'timecop'
 end
