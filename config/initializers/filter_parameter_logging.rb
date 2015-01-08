@@ -1,1 +1,1 @@
-Rails.application.config.filter_parameters += %i( email password wishlist )
+Rails.application.config.filter_parameters += %i( name email password wishlist )
