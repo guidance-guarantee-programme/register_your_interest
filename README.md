@@ -22,25 +22,10 @@ Clone the repository:
 $ git clone https://github.com/guidance-guarantee-programme/register_your_interest.git
 ```
 
-Make sure all Ruby dependencies are available to the application:
+Setup the application:
 
 ```sh
-$ bundle install
-```
-
-Make sure all Node.js dependencies are available to the application:
-
-```sh
-$ npm install
-```
-
-Create the required databases and apply the migrations:
-
-```sh
-$ createdb register_your_interest
-$ createdb register_your_interest_test
-$ ./bin/sequel -m db/migrations/ postgres://localhost/register_your_interest
-$ ./bin/sequel -m db/migrations/ postgres://localhost/register_your_interest_test
+$ ./bin/setup
 ```
 
 ## Usage

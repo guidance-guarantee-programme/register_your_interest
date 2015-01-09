@@ -8,9 +8,8 @@ before_fork do |_, _|
     Process.kill 'QUIT', Process.pid
   end
 
-  puts 'UserProfileRepository disconnecting'
-  UserProfileRepository.connection.disconnect
-  puts 'UserProfileRepository disconnected'
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.connection.disconnect!
 end
 
 after_fork do |_, _|
@@ -18,7 +17,6 @@ after_fork do |_, _|
     puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
   end
 
-  puts 'UserProfileRepository connecting'
-  UserProfileRepository.connection = Sequel.connect(ENV['DATABASE_URL'])
-  puts 'UserProfileRepository connected'
+  defined?(ActiveRecord::Base) and
+    ActiveRecord::Base.establish_connection
 end

@@ -15,8 +15,7 @@ node_js:
   - "0.10"
 before_script:
   - npm install
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - ./bin/sequel -m db/migrations/ postgres://postgres@localhost:5432/travis_ci_test
+  - ./bin/rake db:setup RAILS_ENV=test
 after_script:
   - ./node_modules/.bin/travis-notify-geckoboard -a $GECKOBOARD_API_KEY -w $GECKOBOARD_WIDGET_KEY
 deploy:

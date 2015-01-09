@@ -14,7 +14,7 @@ RSpec.describe UserProfilesController, type: :controller do
   end
 
   describe 'POST create' do
-    it 'calls the CreateUserProfile service with the posted user profile data' do
+    it 'creates a UserProfile with the posted user profile data' do
       user_profile_data = {
         'name' => 'Joe Bloggs',
         'age' => '55',
@@ -25,13 +25,11 @@ RSpec.describe UserProfilesController, type: :controller do
         'channel_preference_web' => true,
         'wishlist' => 'Some reassurance and a clearer understanding of my options.',
       }
-      service = instance_double(CreateUserProfile)
+      user_profile = instance_double(UserProfile)
 
-      allow(CreateUserProfile).to receive(:new)
-        .with(UserProfileRepository)
-        .and_return(service)
-
-      expect(service).to receive(:call).with(user_profile_data)
+      allow(UserProfile).to receive(:create)
+        .with(user_profile_data)
+        .and_return(true)
 
       post :create, user_profile: user_profile_data
     end

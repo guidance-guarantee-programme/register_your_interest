@@ -11,9 +11,7 @@ gem 'pg'
 gem 'rack-canonical-host'
 gem 'rack-timeout'
 gem 'rails', '4.2.0'
-gem 'retriable'
 gem 'sass-rails', '~> 4.0'
-gem 'sequel', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 
@@ -33,6 +31,5 @@ end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'dotenv'
   gem 'rspec-rails', '~> 3.0'
 end

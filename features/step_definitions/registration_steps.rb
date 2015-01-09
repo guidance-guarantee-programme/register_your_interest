@@ -22,9 +22,8 @@ Then(/^they are shown a thank you message$/) do
 end
 
 Then(/^they are captured and saved$/) do
-  repo = UserProfileRepository.new
-
-  user_profile_data = repo.read(email: 'joe.bloggs@example.com')
+  user_profile = UserProfile.find_by(email: 'joe.bloggs@example.com')
+  user_profile_data = user_profile.attributes.with_indifferent_access
 
   expect(user_profile_data).to include({
     name: 'Joe Bloggs',
