@@ -11,7 +11,7 @@ An app to allow users to register their interest in pension guidance.
 * [Node.js][Node]
 * [NPM]
 * [PostgreSQL]
-* [Ruby 2.1.5][Ruby]
+* [Ruby 2.2.0][Ruby]
 
 
 ## Installation
