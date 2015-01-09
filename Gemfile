@@ -20,7 +20,6 @@ gem 'unicorn'
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'rspec-rails', '~> 3.0'
   gem 'site_prism'
   gem 'timecop'
 end
@@ -35,4 +34,5 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv'
+  gem 'rspec-rails', '~> 3.0'
 end
