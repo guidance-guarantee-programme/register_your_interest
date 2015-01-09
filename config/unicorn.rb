@@ -10,10 +10,6 @@ before_fork do |_, _|
 
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.connection.disconnect!
-
-  puts 'UserProfileRepository disconnecting'
-  UserProfileRepository.connection.disconnect
-  puts 'UserProfileRepository disconnected'
 end
 
 after_fork do |_, _|
@@ -23,8 +19,4 @@ after_fork do |_, _|
 
   defined?(ActiveRecord::Base) and
     ActiveRecord::Base.establish_connection
-
-  puts 'UserProfileRepository connecting'
-  UserProfileRepository.connection = Sequel.connect(ENV['DATABASE_URL'])
-  puts 'UserProfileRepository connected'
 end

@@ -23,8 +23,7 @@ class UserProfilesController < ApplicationController
   end
 
   def create
-    service = CreateUserProfile.new(UserProfileRepository.new)
-    service.call(user_profile_params)
+    UserProfile.create(user_profile_params)
 
     render :confirmation
   end
