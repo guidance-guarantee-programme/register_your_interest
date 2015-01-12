@@ -39,3 +39,12 @@
 .l-text {
   max-width: 30em;
 }
+
+.l-logo {
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @include media(tablet) {
+    margin-bottom: 0;
+  }
+}
