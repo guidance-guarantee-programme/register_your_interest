@@ -38,11 +38,7 @@ $ ./bin/foreman s
 
 ## Heroku
 
-To run this application on [Heroku], enable [multiple buildpack][heroku-buildpack-multi] support:
-
-```sh
-$ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
-```
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 ## Contributing
 
