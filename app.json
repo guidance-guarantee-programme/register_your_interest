@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "postdeploy": "./bin/rake db:setup RAILS_ENV=production"
+  },
+  "env": {
+    "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git",
+    "ROOT_REDIRECT": "https://www.gov.uk/pensionwise",
+    "SECRET_KEY_BASE": {
+      "description": "Cryptographically secure secret key (typically used to generate a secret for cookie sessions)",
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "bugsnag:sagittaron",
+    "fastly:fast",
+    "logentries:starter",
+    "memcachier:100",
+    "newrelic:stark"
+  ]
+}
