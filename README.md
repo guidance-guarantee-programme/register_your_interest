@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/guidance-guarantee-programme/register_your_interest.svg)](https://travis-ci.org/guidance-guarantee-programme/register_your_interest)
 
-An app to allow users to register their interest in pension guidance.
+An app to allow users to register their interest in [Pension Wise].
 
 ## Prerequisites
 
@@ -54,5 +54,6 @@ Please see the [contributing guidelines](/CONTRIBUTING.md).
 [heroku-buildpack-multi]: https://github.com/ddollar/heroku-buildpack-multi
 [node]: http://nodejs.org
 [npm]: https://www.npmjs.org
+[pension wise]: https://www.gov.uk/pensionwise
 [postgresql]: http://www.postgresql.org
 [ruby]: http://www.ruby-lang.org/en
