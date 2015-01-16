@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -e
+
+heroku_curl() {
+  # $1 = method (one of GET, PUT, or DELETE. HEAD is not handled yet.)
+  # $2 = path
+
+  stdopts="--connect-timeout 10 --fail --silent"
+
+  [[ $CURL_HEROKU_DEBUG == true ]] && stdopts="${stdopts} --show-error --fail"
+
+  case "$1" in
+  GET )
+    arg="-o"
+    ;;
+  POST )
+    arg="-X POST"
+    ;;
+  HEAD )
+    arg="-I"
+    ;;
+  * )
+    echo "Invalid HTTP verb"
+    ;;
+  esac
+
+  curl ${arg} ${stdopts} "https://api.heroku.com" \
+    -H "Accept: application/vnd.heroku+json; version=3" \
+    -H "Content-Type:application/json"
+
+  return $?
+}
+
+heroku_get() {
+  # $1 = path
+  heroku_curl GET "${1}"
+  return $?
+}
+
+heroku_post() {
+  # $1 = path
+  # $2 = body
+  heroku_curl FOO "${1}" "${2}"
+  return $?
+}
+
+# Trigger a new application setup
+heroku_post "/app-setups/" "" | jq .
+
+# Get application setup status
+heroku_get "/app-setups/{{app}}" | jq .
+
+## Get details of the build
+heroku_get "/apps/{{app}}/builds/{{build}/result" | jq .
+
+## Get details of the release
+heroku_get "/apps/{{app}}/releases" | jq .
