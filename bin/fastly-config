@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Get the active service version
+curl -s -H "Fastly-Key: {{key}}" "https://api.fastly.com/service/{{service}}/details" | jq '.active_version.number'
+
+# Clone the service
+curl -s -X PUT -H "Fastly-Key: {{key}}" "https://api.fastly.com/service/{{service}}/version/1/clone" | jq '.'
+
+# Set the backend port to 443
+curl -s -X PUT -d "port=443" -H "Fastly-Key: {{key}}" "https://api.fastly.com/service/{{service}}/version/2/backend/{{backend}}" | jq '.'
+
+# Activate the service
+curl -s -X PUT -H "Fastly-Key: {{key}}" "https://api.fastly.com/service/{{service}}/version/2/activate" | jq '.'
