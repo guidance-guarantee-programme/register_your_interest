@@ -30,7 +30,6 @@ Rails.application.configure do
   )
 
   config.action_dispatch.rack_cache = {
-    verbose: true,
     metastore: dalli_client,
     entitystore: dalli_client,
     allow_revalidate: false
@@ -67,6 +66,9 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = %i( uuid )
+
+  # Tame Rails' default request logging
+  config.lograge.enabled = true
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)

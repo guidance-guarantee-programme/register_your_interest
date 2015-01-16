@@ -25,6 +25,7 @@ end
 group :production do
   gem 'dalli'
   gem 'foreman'
+  gem 'lograge'
   gem 'rack-cache'
   gem 'rails_12factor'
 end
