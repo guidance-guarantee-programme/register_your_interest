@@ -8,12 +8,12 @@ gem 'govuk_frontend_toolkit'
 gem 'govuk_template'
 gem 'newrelic_rpm'
 gem 'pg'
+gem 'puma'
 gem 'rack-canonical-host'
 gem 'rack-timeout'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'unicorn'
 
 group :test do
   gem 'cucumber-rails', require: false
