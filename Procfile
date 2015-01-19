@@ -1,1 +1,1 @@
-web: ./bin/passenger start -p $PORT --max-pool-size 3
+web: ./bin/passenger start -p $PORT --max-pool-size 4
