@@ -92,4 +92,4 @@ Rails.application.configure do
 
 end
 
-Rack::Timeout.timeout = 8 # seconds
+Rack::Timeout.timeout = 25 # seconds
