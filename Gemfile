@@ -14,6 +14,7 @@ gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'utf8-cleaner'
 
 group :test do
   gem 'cucumber-rails', require: false
