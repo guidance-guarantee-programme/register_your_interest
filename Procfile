@@ -1,1 +1,1 @@
-web: ./bin/unicorn --listen $PORT --config-file ./config/unicorn.rb
+web: ./bin/passenger start -p $PORT --max-pool-size 4
