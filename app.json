@@ -13,7 +13,6 @@
   "addons": [
     "fastly:fast",
     "logentries:starter",
-    "memcachier:100",
-    "newrelic:stark"
+    "memcachier:100"
   ]
 }
