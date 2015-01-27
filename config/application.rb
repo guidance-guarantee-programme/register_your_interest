@@ -17,5 +17,8 @@ module RegisterYourInterest
     # Enable content compression
     config.middleware.use Rack::Deflater
 
+    # Bounce those annoying favicon.ico requests
+    config.middleware.use Rack::BounceFavicon
+
   end
 end
