@@ -110,6 +110,8 @@ GEM
     rack-canonical-host (0.1.0)
       addressable
       rack (~> 1.0)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rack-timeout (0.1.1)
@@ -213,6 +215,7 @@ DEPENDENCIES
   pry-rails
   rack-cache
   rack-canonical-host
+  rack-contrib
   rack-timeout
   rails (= 4.2.0)
   rails_12factor
