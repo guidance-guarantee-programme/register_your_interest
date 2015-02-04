@@ -136,13 +136,13 @@
       <%= f.label :pension_type_defined_contribution, class: 'block-label' do %>
         <%= f.radio_button :pension_type, 'defined_contribution',
                            class: 't-pension_type_defined_contribution' %>
-        A pension based on how much you’ve paid into your pot
+        A defined contribution pension - one based on how much money has been paid into your pot
       <% end %>
 
       <%= f.label :pension_type_defined_benefit, class: 'block-label' do %>
         <%= f.radio_button :pension_type, 'defined_benefit',
                            class: 't-pension_type_defined_benefit' %>
-        A pension based on your salary when you retire
+        A defined benefit pension - one based on your salary and length of time with your employer
       <% end %>
 
       <%= f.label :pension_type_both, class: 'block-label' do %>
