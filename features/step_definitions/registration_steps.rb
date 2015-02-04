@@ -9,7 +9,6 @@ When(/^a user provides their details$/) do
   profile.retirement_preference_6_months.set(true)
   profile.pension_type_defined_contribution.set(true)
   profile.channel_preference_phone.set(true)
-  profile.channel_preference_web.set(true)
   profile.wishlist.set('Some reassurance and a clearer understanding of my options.')
   profile.submit.click
 end
@@ -34,7 +33,7 @@ Then(/^they are captured and saved$/) do
     pension_type: 'defined_contribution',
     channel_preference_face_to_face: false,
     channel_preference_phone: true,
-    channel_preference_web: true,
+    channel_preference_web: nil,
     wishlist: 'Some reassurance and a clearer understanding of my options.',
     created_at: Time.now,
   })

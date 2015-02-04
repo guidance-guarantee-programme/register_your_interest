@@ -58,15 +58,6 @@
       <legend class="form-label-bold">How do you expect to use this service?</legend>
       <p>Select all that apply</p>
 
-      <%= hidden_field_tag 'user_profile[channel_preference_web]', 0, id: nil %>
-      <%= f.label :channel_preference_web, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_web]', 1,
-                          @user_profile.channel_preference_web,
-                          class: 't-channel_preference_web' %>
-
-        I would read information online
-      <% end %>
-
       <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
       <%= f.label :channel_preference_phone, class: 'block-label' do %>
         <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
