@@ -97,31 +97,6 @@
 
   <div class="form-group">
     <fieldset>
-      <legend class="form-label-bold">How do you expect to use this service?</legend>
-      <p>Select all that apply</p>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
-      <%= f.label :channel_preference_phone, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
-                          @user_profile.channel_preference_phone,
-                          class: 't-channel_preference_phone' %>
-
-        Over the phone
-      <% end %>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
-      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
-                          @user_profile.channel_preference_face_to_face,
-                          class: 't-channel_preference_face_to_face' %>
-
-        Face to face
-      <% end %>
-    </fieldset>
-  </div>
-
-  <div class="form-group">
-    <fieldset>
       <legend class="form-label-bold">What type of pension do you have?</legend>
 
       <%= f.label :pension_type_defined_contribution, class: 'block-label' do %>
@@ -146,6 +121,31 @@
         <%= f.radio_button :pension_type, 'unknown',
                            class: 't-pension_type_unknown' %>
         I don’t know
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <fieldset>
+      <legend class="form-label-bold">How do you expect to use this service?</legend>
+      <p>Select all that apply</p>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
+      <%= f.label :channel_preference_phone, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
+                          @user_profile.channel_preference_phone,
+                          class: 't-channel_preference_phone' %>
+
+        Over the phone
+      <% end %>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
+      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
+                          @user_profile.channel_preference_face_to_face,
+                          class: 't-channel_preference_face_to_face' %>
+
+        Face to face
       <% end %>
     </fieldset>
   </div>
