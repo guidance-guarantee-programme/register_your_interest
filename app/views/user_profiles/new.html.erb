@@ -2,18 +2,33 @@
      alt="Pension Wise. Your money. Your choice."
      width="290" height="63" class="l-logo" />
 
-<% content_for :page_title, 'Register your interest in pension guidance - GOV.UK' %>
+<% content_for :page_title, 'Register your interest in Pension Wise guidance appointments - GOV.UK' %>
 
 <div class="text">
-  <h1 class="heading-xlarge">Register your interest in pension guidance</h1>
+  <h1 class="heading-xlarge">Register your interest in Pension Wise guidance appointments</h1>
 
-  <p>The government is creating a new service to help people understand what they can do with their pension pots
-    before they retire.</p>
+  <p>You’ll soon be able to book a free appointment with a trained guidance specialist. Appointments are over the phone
+    or face to face with guidance specialists from The Pensions Advisory Service and Citizens Advice.</p>
 
-  <p>We would like you to take part in testing the service. This will help us find out more about what kind of
-    pension guidance people are looking for.</p>
+  <p>You’ll discuss:</p>
 
-  <p>If you’d like to take part and get early access to our pilot service, complete this form.</p>
+  <ul class="list-bullet">
+    <li>
+      the different ways you can take money from your pension pot(s)
+    </li>
+    <li>
+      what each option means for you and your circumstances
+    </li>
+    <li>
+      what to do once you’ve made your choice
+    </li>
+  </ul>
+
+  <p>This is an impartial government service - Pension Wise won’t recommend any products or tell you what to do with
+    your money.</p>
+
+  <p>Complete this form to register your interest in early access to the appointments. If you’ve already completed
+    this form you don’t need to re-register.</p>
 </div>
 
 <%= form_for @user_profile, url: user_profile_path, authenticity_token: false, class: 'form' do |f| %>
@@ -36,40 +51,6 @@
   <div class="form-group">
     <%= f.label :region, class: 'form-label-bold' %>
     <%= f.select :region, @user_profile_regions, { prompt: '- Select region -' }, { class: %w(t-region) } %>
-  </div>
-
-  <div class="form-group">
-    <fieldset>
-      <legend class="form-label-bold">How do you expect to use this service?</legend>
-      <p>Select all that apply</p>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_web]', 0, id: nil %>
-      <%= f.label :channel_preference_web, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_web]', 1,
-                          @user_profile.channel_preference_web,
-                          class: 't-channel_preference_web' %>
-
-        I would read information online
-      <% end %>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
-      <%= f.label :channel_preference_phone, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
-                          @user_profile.channel_preference_phone,
-                          class: 't-channel_preference_phone' %>
-
-        I would speak to a pensions expert on the phone
-      <% end %>
-
-      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
-      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
-        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
-                          @user_profile.channel_preference_face_to_face,
-                          class: 't-channel_preference_face_to_face' %>
-
-        I would have a face-to-face session with a pensions expert
-      <% end %>
-    </fieldset>
   </div>
 
   <div class="form-group">
@@ -121,13 +102,13 @@
       <%= f.label :pension_type_defined_contribution, class: 'block-label' do %>
         <%= f.radio_button :pension_type, 'defined_contribution',
                            class: 't-pension_type_defined_contribution' %>
-        A pension based on how much you’ve paid into your pot
+        A defined contribution pension - one based on how much money has been paid into your pot
       <% end %>
 
       <%= f.label :pension_type_defined_benefit, class: 'block-label' do %>
         <%= f.radio_button :pension_type, 'defined_benefit',
                            class: 't-pension_type_defined_benefit' %>
-        A pension based on your salary when you retire
+        A defined benefit pension - one based on your salary and length of time with your employer
       <% end %>
 
       <%= f.label :pension_type_both, class: 'block-label' do %>
@@ -145,7 +126,31 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :wishlist, 'What would you like to get from this service?', class: 'form-label-bold' %>
+    <fieldset>
+      <legend class="form-label-bold">What kind of appointment would you prefer?</legend>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_phone]', 0, id: nil %>
+      <%= f.label :channel_preference_phone, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_phone]', 1,
+                          @user_profile.channel_preference_phone,
+                          class: 't-channel_preference_phone' %>
+
+        Over the phone
+      <% end %>
+
+      <%= hidden_field_tag 'user_profile[channel_preference_face_to_face]', 0, id: nil %>
+      <%= f.label :channel_preference_face_to_face, class: 'block-label' do %>
+        <%= check_box_tag 'user_profile[channel_preference_face_to_face]', 1,
+                          @user_profile.channel_preference_face_to_face,
+                          class: 't-channel_preference_face_to_face' %>
+
+        Face to face
+      <% end %>
+    </fieldset>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :wishlist, 'What would you like to get from the appointment?', class: 'form-label-bold' %>
     <%= f.text_area :wishlist, class: %w(t-wishlist form-control), rows: '8' %>
   </div>
 
