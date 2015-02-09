@@ -18,27 +18,27 @@
 <% end %>
 
 <% content_for :content do %>
-  <div class="l-page-container-wrapper">
+  <div class="l-masthead">
+    <div class="l-banner-container">
+      <%= render 'components/phase_banner' %>
+      <%= render 'components/logo_link' %>
+    </div>
+  </div>
 
-    <div class="l-page-container">
-      <div class="phase-banner">
-        <p>
-          <strong class="phase-tag">BETA</strong>
-          <span>This is a new service under development – your
-            <a href="mailto:beta-feedback@pensionwise.gov.uk?Subject=Feedback%20for%20Pension%20Wise%20Beta%20Service">
-              feedback</a> will help us to improve it.
-          </span>
-        </p>
+  <div class="l-page-container">
+    <%= render 'components/breadcrumbs' %>
+
+    <div class="l-grid-row">
+      <div class="l-column-two-thirds">
+        <main role="main" id="content" tabindex="-1">
+          <article role="article" class="l-text">
+            <%= content_for?(:article) ? yield(:article) : yield %>
+          </article>
+        </main>
       </div>
-
-      <div class="l-grid-row">
-        <div class="l-column-two-thirds">
-          <main role="main" id="content" tabindex="-1">
-            <article role="article" class="l-text">
-              <%= content_for?(:article) ? yield(:article) : yield %>
-            </article>
-          </main>
-        </div>
+      <div class="l-column-third l-column-third--sidebar">
+        <div class="sidebar-hr"></div>
+        <%= yield :sidebar %>
       </div>
     </div>
 
