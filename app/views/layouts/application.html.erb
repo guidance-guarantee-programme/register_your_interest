@@ -17,38 +17,28 @@
   <!-- End Google Tag Manager -->
 <% end %>
 
-<% content_for :header_class, 'with-proposition' %>
-
-<% content_for :proposition_header do %>
-  <div class="header-proposition">
-    <div class="content">
-      <a href="<%= root_path %>" id="proposition-name">Pension Wise</a>
+<% content_for :content do %>
+  <div class="l-masthead">
+    <div class="l-banner-container">
+      <%= render 'components/phase_banner' %>
+      <%= render 'components/logo_link' %>
     </div>
   </div>
-<% end %>
 
-<% content_for :content do %>
-  <div class="l-page-container-wrapper">
+  <div class="l-page-container">
+    <%= render 'components/breadcrumbs' %>
 
-    <div class="l-page-container">
-      <div class="phase-banner">
-        <p>
-          <strong class="phase-tag">ALPHA</strong>
-          <span>This is a new service – your
-            <a href="mailto:pensions-alpha-feedback@digital.cabinet-office.gov.uk?Subject=Feedback%20for%20Pension%20Guidance%20Alpha%20Service">
-              feedback</a> will help us to improve it.
-          </span>
-        </p>
+    <div class="l-grid-row">
+      <div class="l-column-two-thirds">
+        <main role="main" id="content" tabindex="-1">
+          <article role="article" class="l-text">
+            <%= content_for?(:article) ? yield(:article) : yield %>
+          </article>
+        </main>
       </div>
-
-      <div class="l-grid-row">
-        <div class="l-column-two-thirds">
-          <main role="main" id="content" tabindex="-1">
-            <article role="article" class="l-text">
-              <%= content_for?(:article) ? yield(:article) : yield %>
-            </article>
-          </main>
-        </div>
+      <div class="l-column-third l-column-third--sidebar">
+        <div class="sidebar-hr"></div>
+        <%= yield :sidebar %>
       </div>
     </div>
 
