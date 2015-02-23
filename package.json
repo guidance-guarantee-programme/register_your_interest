@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "bower": "*",
-    "travis-notify-geckoboard": "*"
+    "travis-notify-geckoboard": "git://github.com/guidance-guarantee-programme/travis-notify-geckoboard#item-must-be-array"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install --allow-root --config.interactive=false --production"
