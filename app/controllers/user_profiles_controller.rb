@@ -33,7 +33,7 @@ private
   def user_profile_params
     params
       .require(:user_profile)
-      .permit(:email, :name, :age, :region, :retirement_preference, :pension_type, :channel_preference_web,
+      .permit(:email, :phone, :name, :age, :region, :retirement_preference, :pension_type, :channel_preference_web,
               :channel_preference_phone, :channel_preference_face_to_face, :wishlist)
   end
 

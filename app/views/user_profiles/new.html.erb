@@ -45,6 +45,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :phone, 'Phone number', class: 'form-label-bold' %>
+    <%= f.text_field :phone, class: %w(t-phone form-control) %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :region, class: 'form-label-bold' %>
     <%= f.select :region, @user_profile_regions, { prompt: '- Select region -' }, { class: %w(t-region) } %>
   </div>
