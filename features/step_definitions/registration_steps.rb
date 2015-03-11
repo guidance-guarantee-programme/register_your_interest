@@ -5,6 +5,7 @@ When(/^a user provides their details$/) do
   profile.name.set('Joe Bloggs')
   profile.age.set(55)
   profile.email.set('joe.bloggs@example.com')
+  profile.phone.set('012 3456 7890')
   profile.region.select('North West')
   profile.retirement_preference_6_months.set(true)
   profile.pension_type_defined_contribution.set(true)
@@ -28,6 +29,7 @@ Then(/^they are captured and saved$/) do
     name: 'Joe Bloggs',
     age: '55',
     email: 'joe.bloggs@example.com',
+    phone: '012 3456 7890',
     region: 'north_west',
     retirement_preference: '6_months',
     pension_type: 'defined_contribution',
