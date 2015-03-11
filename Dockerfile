@@ -1,4 +1,4 @@
-FROM hmtreasury/ruby:2.2.0
+FROM hmtreasury/ruby:2.2.1
 MAINTAINER HM Treasury Guidance Guarantee Programme <pensions-guidance-members@digital.cabinet-office.gov.uk>
 
 ENV NODE_BUILD_DEPENDENCIES build-essential curl python
